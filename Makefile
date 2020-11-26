@@ -19,13 +19,11 @@ KDIR := /lib/modules/$(shell uname -r)/build
 PWD  := $(shell pwd)
 
 
-all:
-	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) P=$(PLATS)
 $(MAKECMDGOALS):
 	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) P=$(PLATS) $(MAKECMDGOALS)
 
 ukbuild:
-	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) P=$(PLATS) M=$(PWD) $<
+	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) P=$(PLATS)
 
 
 default:
