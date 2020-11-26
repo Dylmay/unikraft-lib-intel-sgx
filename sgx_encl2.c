@@ -58,8 +58,8 @@
  */
 
 #include "sgx.h"
-#include <linux/ratelimit.h>
-#include <linux/slab.h>
+//#include <linux/ratelimit.h>
+//#include <linux/slab.h>
 
 #define SGX_NR_MOD_CHUNK_PAGES 16
 

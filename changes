@@ -11,11 +11,13 @@ Header changes:
       <linux/kthread.h>
       <linux/platform_device>
 
+
   sgx_arch.h:
     changed:
       <linux/types.h> >> <sys/types.h>
       <linux/file.h> >> <sys/file.h>
       <linux/mman.h> >> <sys/mman.h>
+
 
   sgx.h:
     disabled:
@@ -26,14 +28,83 @@ Header changes:
       <linux/mmu_notifier.h>
       <linux/radix_tree.h>
       <linux/mm.h>
+
     changed:
       <linux/version.h> >> <uk/version.h>
+
 
   sgx_user.h
     changed:
       <linux/types.h> >> <sys/types.h>
       <linux/ioctl.h> >> <sys/ioctl.h>
 
+
+  sgx_page_cache.c
+    disabled:
+      <linux/freezer.h>
+      <linux/highmem.h>
+      <linux/kthread.h>
+      <linux/slab.h>
+      <linux/ratelimit.h>
+
+    changed:
+      <linux/signal.h> >> <sys/signal.h>
+
+
+  sgx_ioctl.c
+    disabled:
+      <linux/delay.h>
+      <linux/highmem.h>
+      <linux/ratelimit.h>
+      <linux/slab.h>
+      <linux/hashtable.h>
+      <linux/shmem_fs.h>
+
+    changed:
+      <asm/mman.h> >> <sys/mman.h>
+      <linux/file.h> >> <sys/file.h>
+      <linux/signal.h> >> <sys/signal.h>
+
+
+  sgx_vma.c
+    disabled:
+      <linux/delay.h>
+      <linux/highmem.h>
+      <linux/ratelimit.h>
+      <linux/slab.h>
+      <linux/hashtable.h>
+      <linux/shmem_fs.h>
+      <linux/mm.h>
+
+    changed:
+      <asm/mman.h> >> <sys/mman.h>
+      <linux/file.h> >> <sys/file.h>
+
+
+  sgx_util.c
+    disabled:
+      <linux/highmem.h>
+      <linux/shmem_fs.h>
+      <linux/sched/mm.h><linux/mm.h>
+
+  sgx_encl.c
+    disabled:
+      <linux/delay.h>
+      <linux/highmem.h>
+      <linux/ratelimit.h>
+      <linux/slab.h>
+      <linux/hashtable.h>
+      <linux/shmem_fs.h>
+
+    changed:
+      <asm/mman.h> >> <sys/mman.h>
+      <linux/signal.h >> <sys/signal.h>
+      <linux/file.h> >> <sys/file.h>
+
+  sgx_encl2.c
+    disabled:
+      <linux/ratelimit.h>
+      <linux/slab.h>
 
 type files
   <stdint.h>

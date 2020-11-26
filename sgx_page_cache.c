@@ -59,16 +59,16 @@
  */
 
 #include "sgx.h"
-#include <linux/freezer.h>
-#include <linux/highmem.h>
-#include <linux/kthread.h>
-#include <linux/ratelimit.h>
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
-	#include <linux/sched/signal.h>
-#else
-	#include <linux/signal.h>
-#endif
-#include <linux/slab.h>
+//#include <linux/freezer.h>
+//#include <linux/highmem.h>
+//#include <linux/kthread.h>
+//#include <linux/ratelimit.h>
+//#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
+	//#include <linux/sched/signal.h>
+//#else
+	#include <sys/signal.h>
+//#endif
+//#include <linux/slab.h>
 
 #define SGX_NR_LOW_EPC_PAGES_DEFAULT 32
 #define SGX_NR_SWAP_CLUSTER_MAX	16

@@ -59,15 +59,15 @@
  */
 
 #include "sgx.h"
-#include <asm/mman.h>
-#include <linux/delay.h>
-#include <linux/file.h>
-#include <linux/highmem.h>
-#include <linux/ratelimit.h>
-#include <linux/slab.h>
-#include <linux/hashtable.h>
-#include <linux/shmem_fs.h>
-#include <linux/mm.h>
+#include <sys/mman.h>
+//#include <linux/delay.h>
+#include <sys/file.h>
+//#include <linux/highmem.h>
+//#include <linux/ratelimit.h>
+//#include <linux/slab.h>
+//#include <linux/hashtable.h>
+//#include <linux/shmem_fs.h>
+//#include <linux/mm.h>
 
 static void sgx_vma_open(struct vm_area_struct *vma)
 {

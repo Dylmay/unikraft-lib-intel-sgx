@@ -59,13 +59,13 @@
  */
 
 #include "sgx.h"
-#include <linux/highmem.h>
-#include <linux/shmem_fs.h>
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
-	#include <linux/sched/mm.h>
-#else
-	#include <linux/mm.h>
-#endif
+//#include <linux/highmem.h>
+//#include <linux/shmem_fs.h>
+//#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
+//	#include <linux/sched/mm.h>
+//#else
+//	#include <linux/mm.h>
+//#endif
 int sgx_vm_insert_pfn(struct vm_area_struct *vma, unsigned long addr, resource_size_t pa)
 {
 	int rc;

@@ -59,19 +59,19 @@
  */
 
 #include "sgx.h"
-#include <asm/mman.h>
-#include <linux/delay.h>
-#include <linux/file.h>
-#include <linux/highmem.h>
-#include <linux/ratelimit.h>
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
-	#include <linux/sched/signal.h>
-#else
-	#include <linux/signal.h>
-#endif
-#include <linux/slab.h>
-#include <linux/hashtable.h>
-#include <linux/shmem_fs.h>
+#include <sys/mman.h>
+//#include <linux/delay.h>
+#include <sys/file.h>
+//#include <linux/highmem.h>
+//#include <linux/ratelimit.h>
+//#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
+//	#include <linux/sched/signal.h>
+//#else
+	#include <sys/signal.h>
+//#endif
+//#include <linux/slab.h>
+//#include <linux/hashtable.h>
+//#include <linux/shmem_fs.h>
 
 int sgx_get_encl(unsigned long addr, struct sgx_encl **encl)
 {
