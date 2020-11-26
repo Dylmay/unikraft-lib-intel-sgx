@@ -1,0 +1,41 @@
+Header changes:
+  sgx_main.c:
+    disabled:
+      "asm/msr-index.h"
+      <linux/acpi.h>
+      <linux/highmem.h>
+      <linux/miscdevice.h>
+      <linux/module.h>
+      <linux/suspend.h>
+      <linux/hashtable.h>
+      <linux/kthread.h>
+      <linux/platform_device>
+
+  sgx_arch.h:
+    changed:
+      <linux/types.h> >> <sys/types.h>
+      <linux/file.h> >> <sys/file.h>
+      <linux/mman.h> >> <sys/mman.h>
+
+  sgx.h:
+    disabled:
+      <linux/kref.h>
+      <linux/rbtree.h>
+      <linux/rwsem.h>
+      <linux/workqueue.h>
+      <linux/mmu_notifier.h>
+      <linux/radix_tree.h>
+      <linux/mm.h>
+    changed:
+      <linux/version.h> >> <uk/version.h>
+
+  sgx_user.h
+    changed:
+      <linux/types.h> >> <sys/types.h>
+      <linux/ioctl.h> >> <sys/ioctl.h>
+
+
+type files
+  <stdint.h>
+  <uk/arch/types.h>
+  <nolibc/include/sys/types.h>
