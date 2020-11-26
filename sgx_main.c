@@ -58,18 +58,18 @@
  * Sean Christopherson <sean.j.christopherson@intel.com>
  */
 
-#include "asm/msr-index.h"
+//#include "asm/msr-index.h"
 #include "sgx.h"
-#include <linux/acpi.h>
-#include <linux/file.h>
-#include <linux/highmem.h>
-#include <linux/miscdevice.h>
-#include <linux/mman.h>
-#include <linux/module.h>
-#include <linux/suspend.h>
-#include <linux/hashtable.h>
-#include <linux/kthread.h>
-#include <linux/platform_device.h>
+//#include <linux/acpi.h>
+#include <sys/file.h>
+//#include <linux/highmem.h>
+//#include <linux/miscdevice.h>
+#include <sys/mman.h>
+//#include <linux/module.h>
+//#include <linux/suspend.h>
+//#include <linux/hashtable.h>
+//#include <linux/kthread.h>
+//#include <linux/platform_device.h>
 
 #define DRV_DESCRIPTION "Intel SGX Driver"
 #define DRV_VERSION "2.11.0"

@@ -61,15 +61,15 @@
 #define __ARCH_INTEL_SGX_H__
 
 #include "sgx_asm.h"
-#include <linux/kref.h>
-#include <linux/version.h>
-#include <linux/rbtree.h>
-#include <linux/rwsem.h>
-#include <linux/sched.h>
-#include <linux/workqueue.h>
-#include <linux/mmu_notifier.h>
-#include <linux/radix-tree.h>
-#include <linux/mm.h>
+//#include <linux/kref.h>
+#include <uk/version.h>
+//#include <linux/rbtree.h>
+//#include <linux/rwsem.h>
+#include <uk/sched.h>
+//#include <linux/workqueue.h>
+//#include <linux/mmu_notifier.h>
+//#include <linux/radix-tree.h>
+//#include <linux/mm.h>
 #include "sgx_arch.h"
 #include "sgx_user.h"
 

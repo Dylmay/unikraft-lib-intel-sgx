@@ -1,3 +1,9 @@
+UK_DIRECTORY ?= /home/dylan/.unikraft
+UK_ROOT      ?= $(UK_DIRECTORY)/unikraft
+UK_LIBS      ?= $(UK_DIRECTORY)/libs
+UK_PLATS     ?= $(UK_DIRECTORY)/plats
+LIBS         ?= $(UK_LIBS)/newlib
+
 ifneq ($(KERNELRELEASE),)
 	isgx-y := \
 		sgx_main.o \
@@ -12,6 +18,16 @@ else
 KDIR := /lib/modules/$(shell uname -r)/build
 PWD  := $(shell pwd)
 
+
+all:
+	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) P=$(PLATS)
+$(MAKECMDGOALS):
+	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) P=$(PLATS) $(MAKECMDGOALS)
+
+ukbuild:
+	@make -C $(UK_ROOT) A=$(PWD) L=$(LIBS) P=$(PLATS) M=$(PWD) $<
+
+
 default:
 	$(MAKE) -C $(KDIR) M=$(PWD) modules
 
@@ -23,4 +39,4 @@ install: default
 endif
 
 clean:
-	rm -vrf *.o *.ko *.order *.symvers *.mod.c .tmp_versions .*o.cmd
+	rm -vrf *.o *.ko *.order *.symvers *.mod.c .tmp_versions .*o.cmd build/

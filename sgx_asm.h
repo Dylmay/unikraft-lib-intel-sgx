@@ -59,10 +59,10 @@
 #define _ASM_X86_SGX_H
 
 #include "sgx_arch.h"
-#include <asm/asm.h>
-#include <linux/bitops.h>
-#include <linux/err.h>
-#include <linux/types.h>
+#include <uk/asm.h>
+#include <uk/bitops.h>
+//#include <linux/err.h>
+#include <uk/_types.h>
 
 #define SGX_CPUID 0x12
 
