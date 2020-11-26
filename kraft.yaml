@@ -1,0 +1,8 @@
+architectures:
+  x86_64: true
+platforms:
+  kvm: true
+specification: '0.4'
+unikraft:
+  source: https://github.com/unikraft/unikraft.git
+  version: staging
