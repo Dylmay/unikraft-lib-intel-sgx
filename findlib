@@ -1,0 +1,13 @@
+#!/bin/sh
+
+UK_DIRECTORY=/home/dylan/.unikraft 
+UNIKRAFT_LIBS=$UK_DIRECTORY/unikraft/include
+THIRD_PARTY_LIB=$UK_DIRECTORY/libs
+UNIKRAFT_INTERNAL_LIBS=$UK_DIRECTORY/unikraft/lib
+
+echo "Unikraft internal libs:"
+find $UNIKRAFT_INTERNAL_LIBS -name $1
+echo "Unikraft libs:"
+find $UNIKRAFT_LIBS -name $1
+echo "External libs:"
+find $THIRD_PARTY_LIB -name $1
