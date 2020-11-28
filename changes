@@ -11,6 +11,13 @@ Header changes:
       <linux/kthread.h>
       <linux/platform_device>
 
+    function name change:
+      pr_err >> uk_pr_err
+      pr_warn >> uk_pr_warn
+      list_for_each_entry >> uk_list_for_each_entry
+      u64 >> __u64
+      u32 >> __u32
+
 
   sgx_arch.h:
     changed:
@@ -31,6 +38,14 @@ Header changes:
 
     changed:
       <linux/version.h> >> <uk/version.h>
+
+    function name change:
+      find_first_zero_bit >> uk_find_first_zero_bit
+      find_first_bit >> uk_find_first_bit
+      set_bit >> uk_set_bit
+      clear_bit >> uk_clear_bit
+      u64 >> __u64
+      u32 >> __u32
 
 
   sgx_user.h

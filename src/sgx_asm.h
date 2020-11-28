@@ -62,7 +62,7 @@
 #include <uk/asm.h>
 #include <uk/bitops.h>
 //#include <linux/err.h>
-#include <uk/_types.h>
+#include <sys/types.h>
 
 #define SGX_CPUID 0x12
 

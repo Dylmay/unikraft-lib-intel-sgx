@@ -74,6 +74,34 @@
 #define DRV_DESCRIPTION "Intel SGX Driver"
 #define DRV_VERSION "2.11.0"
 
+/* Unikraft naming changes */
+
+#ifndef u64
+#define u64 __u64
+#endif
+
+#ifndef u32
+#define u32 __u32
+#endif
+
+#ifndef PAGE_SIZE
+#define PAGE_SIZE __PAGE_SIZE
+#endif
+
+#ifndef list_for_each_entry
+#define list_for_each_entry(a, b, c) uk_list_for_each_entry(a, b, c)
+#endif
+
+#ifndef pr_err
+#define pr_err(err) uk_pr_err(err)
+#endif
+
+#ifndef pr_warn
+#define pr_warn(warn) uk_pr_warn(warn)
+#endif
+
+/* End of Unikraft naming changes */
+
 #ifndef MSR_IA32_FEAT_CTL
 #define MSR_IA32_FEAT_CTL MSR_IA32_FEATURE_CONTROL
 #endif
@@ -82,9 +110,9 @@
 #define FEAT_CTL_LOCKED FEATURE_CONTROL_LOCKED
 #endif
 
-MODULE_DESCRIPTION(DRV_DESCRIPTION);
-MODULE_AUTHOR("Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>");
-MODULE_VERSION(DRV_VERSION);
+//MODULE_DESCRIPTION(DRV_DESCRIPTION);
+//MODULE_AUTHOR("Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>");
+//MODULE_VERSION(DRV_VERSION);
 #ifndef X86_FEATURE_SGX
 	#define X86_FEATURE_SGX (9 * 32 + 2)
 #endif
@@ -194,7 +222,7 @@ static int sgx_dev_init(struct device *parent)
 	int ret;
 	int i;
 
-	pr_info("intel_sgx: " DRV_DESCRIPTION " v" DRV_VERSION "\n");
+//	pr_info("intel_sgx: " DRV_DESCRIPTION " v" DRV_VERSION "\n");
 
 	cpuid_count(SGX_CPUID, SGX_CPUID_CAPABILITIES, &eax, &ebx, &ecx, &edx);
 	/* Only allow misc bits supported by the driver. */
@@ -388,7 +416,7 @@ void cleanup_sgx_module(void)
 	platform_driver_unregister(&sgx_drv);
 }
 
-module_init(init_sgx_module);
-module_exit(cleanup_sgx_module);
+//module_init(init_sgx_module);
+//module_exit(cleanup_sgx_module);
 
-MODULE_LICENSE("Dual BSD/GPL");
+//MODULE_LICENSE("Dual BSD/GPL");
