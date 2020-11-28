@@ -1,4 +1,4 @@
-UK_DIRECTORY ?= /home/dylan/.unikraft
+UK_DIRECTORY ?= $(HOME)/.unikraft
 UK_ROOT      ?= $(UK_DIRECTORY)/unikraft
 UK_LIBS      ?= $(UK_DIRECTORY)/libs
 UK_PLATS     ?= $(UK_DIRECTORY)/plats
