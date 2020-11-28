@@ -1,0 +1,3 @@
+menuconfig LIBSGXDRIVER
+  bool "sgx driver - an implementation of the Intel SGX Linux driver for Unikraft"
+  default n
