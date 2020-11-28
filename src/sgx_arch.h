@@ -54,7 +54,7 @@
  * Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
  */
 
-#include <uk/_types.h>
+#include <sys/types.h>
 #ifndef _ASM_X86_SGX_ARCH_H
 #define _ASM_X86_SGX_ARCH_H
 
