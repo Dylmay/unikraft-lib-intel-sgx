@@ -32,23 +32,27 @@
 ////////////////////////////////////////////////////////////////////////////////
 /* uk/bitops.h name defines */
 #ifndef BIT
-# define BIT(nr) UK_BIT(nr)
+# define BIT UK_BIT
 #endif
 
 #ifndef find_first_zero_bit
-# define find_first_zero_bit(a, b) uk_find_first_zero_bit(a, b)
+# define find_first_zero_bit uk_find_first_zero_bit
 #endif
 
 #ifndef find_first_bit
-# define find_first_bit(a, b) uk_find_first_bit(a, b)
+# define find_first_bit uk_find_first_bit
 #endif
 
 #ifndef set_bit
-# define set_bit(a, b) uk_set_bit(a, b)
+# define set_bit uk_set_bit
 #endif
 
 #ifndef clear_bit
-# define clear_bit(a, b) uk_clear_bit(a, b)
+# define clear_bit uk_clear_bit
+#endif
+
+#ifndef container_of
+# define container_of __containerof
 #endif
 /* End of uk/bitops.h name defines */
 ////////////////////////////////////////////////////////////////////////////////
@@ -71,6 +75,10 @@
 
 #ifndef u32
 # define u32 __u32
+#endif
+
+#ifndef u16
+# define u16 __u16
 #endif
 
 #ifndef PAGE_SIZE
@@ -101,72 +109,99 @@
 # define ATOMIC_INIT(i) {(i)}
 #endif
 
+/* End of Type declarations*/
+////////////////////////////////////////////////////////////////////////////////
+/* mutex defines */
 #ifndef mutex
 # define mutex uk_mutex
 #endif
 
 #ifndef mutex_lock
-# define mutex_lock(pointer) uk_mutex_lock(pointer)
+# define mutex_lock uk_mutex_lock
 #endif
 
 #ifndef mutex_unlock
-# define mutex_unlock(pointer) uk_mutex_unlock(pointer)
+# define mutex_unlock uk_mutex_unlock
 #endif
-/* End of Type declarations*/
+
+#ifndef mutex_init
+# define mutex_init uk_mutex_init
+#endif
+/* End of mutex defines */
 ////////////////////////////////////////////////////////////////////////////////
 /* uk/list.h name defines */
 #ifndef list_for_each_entry
-# define list_for_each_entry(a, b, c) uk_list_for_each_entry(a, b, c)
+# define list_for_each_entry uk_list_for_each_entry
+#endif
+
+#ifndef INIT_LIST_HEAD
+# define INIT_LIST_HEAD UK_INIT_LIST_HEAD
 #endif
 
 #ifndef list_head
 # define list_head uk_list_head
 #endif
 
+#ifndef LIST_HEAD
+# define LIST_HEAD UK_LIST_HEAD
+#endif
+
+#ifndef list_splice
+# define list_splice uk_list_splice
+#endif
+
 #ifndef list_empty
-# define list_empty(list) uk_list_empty(list)
+# define list_empty uk_list_empty
 #endif
 
 #ifndef list_first_entry
-# define list_first_entry(a, b, c) uk_list_first_entry(a, b, c)
+# define list_first_entry uk_list_first_entry
 #endif
 
 #ifndef list_move_tail
-# define list_move_tail(a, b) uk_list_move_tail(a, b)
+# define list_move_tail uk_list_move_tail
 #endif
 
 #ifndef list_for_each_entry_safe
-# define list_for_each_entry_safe(a,b,c,d) uk_list_for_each_entry_safe(a,b,c,d)
+# define list_for_each_entry_safe uk_list_for_each_entry_safe
 #endif
 
 #ifndef list_del
-# define list_del(list) uk_list_del(list)
+# define list_del uk_list_del
+#endif
+
+#ifndef list_del_init
+# define list_del_init uk_list_del_init
 #endif
 
 #ifndef list_add_tail
-# define list_add_tail(a, b) uk_list_add_tail(a, b)
+# define list_add_tail uk_list_add_tail
 #endif
 
 #ifndef list_for_each_safe
-# define list_for_each_safe(a, b, c) uk_list_for_each_safe(a, b, c)
+# define list_for_each_safe uk_list_for_each_safe
 #endif
 
 #ifndef list_add
-#define list_add(a, b) uk_list_add(a, b)
+#define list_add uk_list_add
 #endif
 /* End of uk/list.h name defines*/
 ////////////////////////////////////////////////////////////////////////////////
 /* pr_err name  defines */
 #ifndef pr_err
-# define pr_err(err) uk_pr_err(err)
+# define pr_err uk_pr_err
 #endif
 
 #ifndef pr_warn
-# define pr_warn(warn) uk_pr_warn(warn)
+# define pr_warn uk_pr_warn
 #endif
 
 #ifndef pr_info
-# define pr_info(info) uk_pr_info(info)
+# define pr_info uk_pr_info
+#endif
+
+#ifndef BUG_ON
+# define BUG_ON UK_BUGON
 #endif
 /* End of pr_err name defines */
 ////////////////////////////////////////////////////////////////////////////////
