@@ -77,27 +77,27 @@
 /* Unikraft naming changes */
 
 #ifndef u64
-#define u64 __u64
+# define u64 __u64
 #endif
 
 #ifndef u32
-#define u32 __u32
+# define u32 __u32
 #endif
 
 #ifndef PAGE_SIZE
-#define PAGE_SIZE __PAGE_SIZE
+# define PAGE_SIZE __PAGE_SIZE
 #endif
 
 #ifndef list_for_each_entry
-#define list_for_each_entry(a, b, c) uk_list_for_each_entry(a, b, c)
+# define list_for_each_entry(a, b, c) uk_list_for_each_entry(a, b, c)
 #endif
 
 #ifndef pr_err
-#define pr_err(err) uk_pr_err(err)
+# define pr_err(err) uk_pr_err(err)
 #endif
 
 #ifndef pr_warn
-#define pr_warn(warn) uk_pr_warn(warn)
+# define pr_warn(warn) uk_pr_warn(warn)
 #endif
 
 /* End of Unikraft naming changes */

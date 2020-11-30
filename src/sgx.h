@@ -63,27 +63,27 @@
 /* Unikraft naming changes */
 
 #ifndef find_first_zero_bit
-#define find_first_zero_bit(a, b) uk_find_first_zero_bit(a, b)
+# define find_first_zero_bit(a, b) uk_find_first_zero_bit(a, b)
 #endif
 
 #ifndef find_first_bit
-#define find_first_bit(a, b) uk_find_first_bit(a, b)
+# define find_first_bit(a, b) uk_find_first_bit(a, b)
 #endif
 
 #ifndef set_bit
-#define set_bit(a, b) uk_set_bit(a, b)
+# define set_bit(a, b) uk_set_bit(a, b)
 #endif
 
 #ifndef clear_bit
-#define clear_bit(a, b) uk_clear_bit(a, b)
+# define clear_bit(a, b) uk_clear_bit(a, b)
 #endif
 
 #ifndef u64
-#define u64 __u64
+# define u64 __u64
 #endif
 
 #ifndef u32
-#define u32 __u32
+# define u32 __u32
 #endif
 
 /* End of Unikraft naming changes*/

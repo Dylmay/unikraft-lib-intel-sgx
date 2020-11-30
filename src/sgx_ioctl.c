@@ -64,11 +64,7 @@
 #include <sys/file.h>
 //#include <linux/highmem.h>
 //#include <linux/ratelimit.h>
-//#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
-//	#include <linux/sched/signal.h>
-//#else
-	#include <sys/signal.h>
-//#endif
+#include <sys/signal.h>
 //#include <linux/slab.h>
 //#include <linux/hashtable.h>
 //#include <linux/shmem_fs.h>

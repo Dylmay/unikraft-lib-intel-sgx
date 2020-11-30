@@ -64,16 +64,22 @@
 //#include <linux/err.h>
 #include <sys/types.h>
 
+/* Unikraft Naming changes */
+
 /* Definition for linux/asm.h->_ASM_EXTABLE(a,b)*/
 #define _EXPAND_EXTABLE_HANDLE(x) #x
 
-#define _ASM_EXTABLE(from, to)						\
+#ifndef _ASM_EXTABLE
+# define _ASM_EXTABLE(from, to)						\
 	" .pushsection \"__ex_table\",\"a\"\n"				\
 	" .balign 4\n"							\
 	" .long (" #from ") - .\n"					\
 	" .long (" #to ") - .\n"					\
 	" .long (" _EXPAND_EXTABLE_HANDLE(ex_handler_default) ") - .\n"	\
 	" .popsection\n"
+#endif
+
+/* End of Unikraft Naming changes */
 
 #define SGX_CPUID 0x12
 
