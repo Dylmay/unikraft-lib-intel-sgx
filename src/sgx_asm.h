@@ -58,28 +58,9 @@
 #ifndef _ASM_X86_SGX_H
 #define _ASM_X86_SGX_H
 
+#include "sgx_uk.h"
 #include "sgx_arch.h"
-//#include <uk/asm.h>
-//#include <uk/bitops.h>
 //#include <linux/err.h>
-#include <sys/types.h>
-
-/* Unikraft Naming changes */
-
-/* Definition for linux/asm.h->_ASM_EXTABLE(a,b)*/
-#define _EXPAND_EXTABLE_HANDLE(x) #x
-
-#ifndef _ASM_EXTABLE
-# define _ASM_EXTABLE(from, to)						\
-	" .pushsection \"__ex_table\",\"a\"\n"				\
-	" .balign 4\n"							\
-	" .long (" #from ") - .\n"					\
-	" .long (" #to ") - .\n"					\
-	" .long (" _EXPAND_EXTABLE_HANDLE(ex_handler_default) ") - .\n"	\
-	" .popsection\n"
-#endif
-
-/* End of Unikraft Naming changes */
 
 #define SGX_CPUID 0x12
 

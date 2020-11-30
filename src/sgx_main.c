@@ -59,6 +59,7 @@
  */
 
 //#include "asm/msr-index.h"
+#include "sgx_uk.h"
 #include "sgx.h"
 //#include <linux/acpi.h>
 #include <sys/file.h>
@@ -73,34 +74,6 @@
 
 #define DRV_DESCRIPTION "Intel SGX Driver"
 #define DRV_VERSION "2.11.0"
-
-/* Unikraft naming changes */
-
-#ifndef u64
-# define u64 __u64
-#endif
-
-#ifndef u32
-# define u32 __u32
-#endif
-
-#ifndef PAGE_SIZE
-# define PAGE_SIZE __PAGE_SIZE
-#endif
-
-#ifndef list_for_each_entry
-# define list_for_each_entry(a, b, c) uk_list_for_each_entry(a, b, c)
-#endif
-
-#ifndef pr_err
-# define pr_err(err) uk_pr_err(err)
-#endif
-
-#ifndef pr_warn
-# define pr_warn(warn) uk_pr_warn(warn)
-#endif
-
-/* End of Unikraft naming changes */
 
 #ifndef MSR_IA32_FEAT_CTL
 #define MSR_IA32_FEAT_CTL MSR_IA32_FEATURE_CONTROL
