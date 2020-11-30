@@ -195,7 +195,7 @@ static int sgx_dev_init(struct device *parent)
 	int ret;
 	int i;
 
-//	pr_info("intel_sgx: " DRV_DESCRIPTION " v" DRV_VERSION "\n");
+	pr_info("intel_sgx: " DRV_DESCRIPTION " v" DRV_VERSION "\n");
 
 	cpuid_count(SGX_CPUID, SGX_CPUID_CAPABILITIES, &eax, &ebx, &ecx, &edx);
 	/* Only allow misc bits supported by the driver. */

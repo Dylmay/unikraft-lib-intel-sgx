@@ -10,6 +10,7 @@
 #include <uk/refcount.h>
 #include <uk/list.h>
 #include <sys/types.h>
+#include <uk/mutex.h>
 //#include <uk/bitmap.h>
 /* End of header includes */
 ////////////////////////////////////////////////////////////////////////////////
@@ -52,6 +53,18 @@
 /* End of uk/bitops.h name defines */
 ////////////////////////////////////////////////////////////////////////////////
 /* Type declarations  */
+#ifndef DIV_ROUND_UP
+# define DIV_ROUND_UP(n,d) (((n) + (d) - 1) / (d))
+#endif
+
+#ifndef BITS_TO_LONGS
+# define BITS_TO_LONGS(nr) DIV_ROUND_UP(nr, 8 * sizeof(long))
+#endif
+
+#ifndef DECLARE_BITMAP
+# define DECLARE_BITMAP(name, bits) unsigned long name[BITS_TO_LONGS(bits)]
+#endif
+
 #ifndef u64
 # define u64 __u64
 #endif
@@ -73,7 +86,11 @@
 #endif
 
 #ifndef atomic_t
-# define atomic_t __atomic;
+# define atomic_t __atomic
+#endif
+
+#ifndef mutex
+# define mutex uk_mutex
 #endif
 /* End of Type declarations*/
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,6 +112,10 @@
 #ifndef pr_warn
 # define pr_warn(warn) uk_pr_warn(warn)
 #endif
+
+#ifndef pr_info
+# define pr_info(info) uk_pr_info(info)
+#endif
 /* End of pr_err name defines */
 ////////////////////////////////////////////////////////////////////////////////
 /* linux/kref.h struct kref replacement */
@@ -104,5 +125,6 @@ struct kref {
 };
 #endif
 /* End of linux/kref.h struct replacement */
+////////////////////////////////////////////////////////////////////////////////
 #define UNI_LIBSGX_DRIVER_SGX_UK_H
 #endif // UNI_LIBSGX_DRIVER_SGX_UK_H
