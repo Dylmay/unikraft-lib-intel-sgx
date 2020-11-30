@@ -77,6 +77,14 @@
 # define PAGE_SIZE __PAGE_SIZE
 #endif
 
+#ifndef PAGE_SHIFT
+# define PAGE_SHIFT __PAGE_SHIFT
+#endif
+
+#ifndef PAGE_MASK
+# define PAGE_MASK __PAGE_MASK
+#endif
+
 #ifndef phys_addr_t
 # define phys_addr_t __phys_addr
 #endif
@@ -89,8 +97,20 @@
 # define atomic_t __atomic
 #endif
 
+#ifndef ATOMIC_INIT
+# define ATOMIC_INIT(i) {(i)}
+#endif
+
 #ifndef mutex
 # define mutex uk_mutex
+#endif
+
+#ifndef mutex_lock
+# define mutex_lock(pointer) uk_mutex_lock(pointer)
+#endif
+
+#ifndef mutex_unlock
+# define mutex_unlock(pointer) uk_mutex_unlock(pointer)
 #endif
 /* End of Type declarations*/
 ////////////////////////////////////////////////////////////////////////////////
@@ -102,6 +122,37 @@
 #ifndef list_head
 # define list_head uk_list_head
 #endif
+
+#ifndef list_empty
+# define list_empty(list) uk_list_empty(list)
+#endif
+
+#ifndef list_first_entry
+# define list_first_entry(a, b, c) uk_list_first_entry(a, b, c)
+#endif
+
+#ifndef list_move_tail
+# define list_move_tail(a, b) uk_list_move_tail(a, b)
+#endif
+
+#ifndef list_for_each_entry_safe
+# define list_for_each_entry_safe(a,b,c,d) uk_list_for_each_entry_safe(a,b,c,d)
+#endif
+
+#ifndef list_del
+# define list_del(list) uk_list_del(list)
+#endif
+
+#ifndef list_add_tail
+# define list_add_tail(a, b) uk_list_add_tail(a, b)
+#endif
+
+#ifndef list_for_each_safe
+# define list_for_each_safe(a, b, c) uk_list_for_each_safe(a, b, c)
+#endif
+
+#ifndef list_add
+#define list_add(a, b) uk_list_add(a, b)
 /* End of uk/list.h name defines*/
 ////////////////////////////////////////////////////////////////////////////////
 /* pr_err name  defines */
@@ -126,5 +177,11 @@ struct kref {
 #endif
 /* End of linux/kref.h struct replacement */
 ////////////////////////////////////////////////////////////////////////////////
+/* kmap alternative */
+#ifndef kmap
+# define kmap uk_palloc()
+#endif
+
+/* End of kmap alternative */
 #define UNI_LIBSGX_DRIVER_SGX_UK_H
 #endif // UNI_LIBSGX_DRIVER_SGX_UK_H
