@@ -62,7 +62,6 @@
 
 #include "sgx_uk.h"
 #include "sgx_asm.h"
-//#include <linux/kref.h>
 //#include <linux/rbtree.h>
 //#include <linux/rwsem.h>
 #include <uk/sched.h>

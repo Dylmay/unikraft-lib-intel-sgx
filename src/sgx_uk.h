@@ -7,8 +7,10 @@
 
 /* Header includes */
 #include <uk/bitops.h>
+#include <uk/refcount.h>
 #include <uk/list.h>
 #include <sys/types.h>
+//#include <uk/bitmap.h>
 /* End of header includes */
 ////////////////////////////////////////////////////////////////////////////////
 /* linux/asm.h definitions */
@@ -28,6 +30,10 @@
 /* End of linux/asm.h definitions */
 ////////////////////////////////////////////////////////////////////////////////
 /* uk/bitops.h name defines */
+#ifndef BIT
+# define BIT(nr) UK_BIT(nr)
+#endif
+
 #ifndef find_first_zero_bit
 # define find_first_zero_bit(a, b) uk_find_first_zero_bit(a, b)
 #endif
@@ -57,15 +63,31 @@
 #ifndef PAGE_SIZE
 # define PAGE_SIZE __PAGE_SIZE
 #endif
+
+#ifndef phys_addr_t
+# define phys_addr_t __phys_addr
+#endif
+
+#ifndef resource_size_t
+# define resource_size_t phys_addr_t
+#endif
+
+#ifndef atomic_t
+# define atomic_t __atomic;
+#endif
 /* End of Type declarations*/
 ////////////////////////////////////////////////////////////////////////////////
 /* uk/list.h name defines */
 #ifndef list_for_each_entry
 # define list_for_each_entry(a, b, c) uk_list_for_each_entry(a, b, c)
 #endif
-/*End of uk/list.h name defines*/
+
+#ifndef list_head
+# define list_head uk_list_head
+#endif
+/* End of uk/list.h name defines*/
 ////////////////////////////////////////////////////////////////////////////////
-/*pr_err name  defines */
+/* pr_err name  defines */
 #ifndef pr_err
 # define pr_err(err) uk_pr_err(err)
 #endif
@@ -73,7 +95,14 @@
 #ifndef pr_warn
 # define pr_warn(warn) uk_pr_warn(warn)
 #endif
-/*End of pr_err name defines */
+/* End of pr_err name defines */
 ////////////////////////////////////////////////////////////////////////////////
+/* linux/kref.h struct kref replacement */
+#ifndef _KREF_H_
+struct kref {
+	atomic_t refcount;
+};
+#endif
+/* End of linux/kref.h struct replacement */
 #define UNI_LIBSGX_DRIVER_SGX_UK_H
 #endif // UNI_LIBSGX_DRIVER_SGX_UK_H
