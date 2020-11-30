@@ -153,6 +153,7 @@
 
 #ifndef list_add
 #define list_add(a, b) uk_list_add(a, b)
+#endif
 /* End of uk/list.h name defines*/
 ////////////////////////////////////////////////////////////////////////////////
 /* pr_err name  defines */
@@ -177,11 +178,6 @@ struct kref {
 #endif
 /* End of linux/kref.h struct replacement */
 ////////////////////////////////////////////////////////////////////////////////
-/* kmap alternative */
-#ifndef kmap
-# define kmap uk_palloc()
-#endif
-
 /* End of kmap alternative */
 #define UNI_LIBSGX_DRIVER_SGX_UK_H
 #endif // UNI_LIBSGX_DRIVER_SGX_UK_H
