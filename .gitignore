@@ -6,4 +6,5 @@
 *.order
 *.tmp_versions
 .config*
+.idea/
 build/
