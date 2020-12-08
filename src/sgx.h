@@ -62,13 +62,14 @@
 
 #include "sgx_uk.h"
 #include "sgx_asm.h"
-//#include <linux/rbtree.h>
-//#include <linux/rwsem.h>
+//#include <linux/rbtree.h> // binary search. can be removed
+//#include <linux/rwsem.h> //semaphore. can be replaced
 #include <uk/sched.h>
-//#include <linux/workqueue.h>
-//#include <linux/mmu_notifier.h>
-//#include <linux/radix-tree.h>
-//#include <linux/mm.h>
+//replace with single threaded alternative
+//#include <linux/workqueue.h>  //handles threading of tasks. can be replaced
+//#include <linux/freezer.h> //handles freezing of threads. can be removed
+//#include <linux/mm.h> //memory management. swap to palloc
+//#include <linux/mmu_notifier.h> //memory notifier. can be removed
 #include "sgx_arch.h"
 #include "sgx_user.h"
 
@@ -166,7 +167,7 @@ struct sgx_encl {
 	unsigned long size;
 	unsigned long ssaframesize;
 	struct list_head va_pages;
-	struct radix_tree_root page_tree;
+	struct radix_tree page_tree;
 	struct list_head add_page_reqs;
 	struct work_struct add_page_work;
 	struct sgx_encl_page secs;
