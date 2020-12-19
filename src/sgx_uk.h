@@ -9,7 +9,7 @@
 #include <uk/bitops.h>
 #include <uk/refcount.h>
 #include <uk/list.h>
-#include <uk/radix.h>
+#include <uk/radixtree.h>
 #include <uk/kref.h>
 #include <sys/types.h>
 #include <uk/mutex.h>
