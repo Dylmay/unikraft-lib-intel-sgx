@@ -11,3 +11,9 @@ platforms:
 
 libraries:
   newlib: '0.4'
+  ukkref:
+    source: https://github.com/Dylmay/unikraft-lib-kref.git
+    version: staging
+  ukradix:
+    source: https://github.com/Dylmay/unikraft-lib-radix.git
+    version: staging
