@@ -61,34 +61,15 @@
 #include "sgx.h"
 //#include <linux/highmem.h>
 //#include <linux/shmem_fs.h>
-//#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
-//	#include <linux/sched/mm.h>
-//#else
-//	#include <linux/mm.h>
+//#include <linux/sched/mm.h>
+//#include <linux/mm.h>
 //#endif
 int sgx_vm_insert_pfn(struct vm_area_struct *vma, unsigned long addr, resource_size_t pa)
 {
 	int rc;
 
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 20, 0))
         rc = vmf_insert_pfn(vma, addr, PFN_DOWN(pa));
-#else
-    #if( defined(RHEL_RELEASE_VERSION) && defined(RHEL_RELEASE_CODE))
-        #if (RHEL_RELEASE_CODE > RHEL_RELEASE_VERSION(8, 1))
-            rc = vmf_insert_pfn(vma, addr, PFN_DOWN(pa));
-        #else //8.1 or below
-            rc = vm_insert_pfn(vma, addr, PFN_DOWN(pa));
-            if (!rc){
-                rc = VM_FAULT_NOPAGE;
-            }
-        #endif
-    #else
-        rc = vm_insert_pfn(vma, addr, PFN_DOWN(pa));
-        if (!rc){
-                rc = VM_FAULT_NOPAGE;
-        }
-    #endif
-#endif
+
         return rc;
 }
 

@@ -49,7 +49,7 @@
 # define phys_addr_t __phys_addr
 # define resource_size_t phys_addr_t
 # define atomic_t __atomic
-# define ATOMIC_INIT(i) {(i)}
+//# define ATOMIC_INIT(i) {(i)}
 /* End of Type declarations*/
 ////////////////////////////////////////////////////////////////////////////////
 /* mutex defines */

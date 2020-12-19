@@ -58,16 +58,13 @@
  * Sean Christopherson <sean.j.christopherson@intel.com>
  */
 
+#include "sgx_uk.h"
 #include "sgx.h"
 //#include <linux/freezer.h>
 //#include <linux/highmem.h>
 //#include <linux/kthread.h>
 //#include <linux/ratelimit.h>
-//#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
-	//#include <linux/sched/signal.h>
-//#else
-	#include <sys/signal.h>
-//#endif
+#include <sys/signal.h>
 //#include <linux/slab.h>
 
 #define SGX_NR_LOW_EPC_PAGES_DEFAULT 32
@@ -150,8 +147,7 @@ static struct sgx_tgid_ctx *sgx_isolate_tgid_ctx(unsigned long nr_to_scan)
 	for (i = 0; i < nr_to_scan; i++) {
 		/* Peek TGID context from the head. */
 		ctx = list_first_entry(&sgx_tgid_ctx_list,
-				       struct sgx_tgid_ctx,
-				       list);
+				       struct sgx_tgid_ctx,list);
 
 		/* Move to the tail so that we do not encounter it in the
 		 * next iteration.

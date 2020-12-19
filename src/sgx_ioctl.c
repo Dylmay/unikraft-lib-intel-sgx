@@ -58,6 +58,7 @@
  * Sean Christopherson <sean.j.christopherson@intel.com>
  */
 
+#include "sgx_uk.h"
 #include "sgx.h"
 #include <sys/mman.h>
 //#include <linux/delay.h>
@@ -65,6 +66,7 @@
 //#include <linux/highmem.h>
 //#include <linux/ratelimit.h>
 #include <sys/signal.h>
+#include <uk/alloc.h>
 //#include <linux/slab.h>
 //#include <linux/hashtable.h>
 //#include <linux/shmem_fs.h>
