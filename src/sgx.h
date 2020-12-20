@@ -76,7 +76,7 @@
 #define SGX_EINIT_SPIN_COUNT	20
 #define SGX_EINIT_SLEEP_COUNT	50
 #define SGX_EINIT_SLEEP_TIME	20
-#define SGX_EDMM_SPIN_COUNT	20
+//#define SGX_EDMM_SPIN_COUNT	20
 
 #define SGX_VA_SLOT_COUNT 512
 
@@ -112,6 +112,7 @@ static inline void sgx_free_va_slot(struct sgx_va_page *page,
 	clear_bit(offset >> 3, page->slots);
 }
 
+/*
 static inline bool sgx_va_slots_empty(struct sgx_va_page *page)
 {
 	int slot = find_first_bit(page->slots, SGX_VA_SLOT_COUNT);
@@ -121,6 +122,7 @@ static inline bool sgx_va_slots_empty(struct sgx_va_page *page)
 
 	return false;
 }
+*/
 
 enum sgx_encl_page_flags {
 	SGX_ENCL_PAGE_TCS	= BIT(0),
@@ -169,11 +171,11 @@ struct sgx_encl {
 	struct list_head va_pages;
 	struct radix_tree page_tree;
 	struct list_head add_page_reqs;
-	struct work_struct add_page_work;
+	//struct work_struct add_page_work;
 	struct sgx_encl_page secs;
 	struct sgx_tgid_ctx *tgid_ctx;
 	struct list_head encl_list;
-	struct mmu_notifier mmu_notifier;
+	//struct mmu_notifier mmu_notifier;
 	unsigned int shadow_epoch;
 };
 

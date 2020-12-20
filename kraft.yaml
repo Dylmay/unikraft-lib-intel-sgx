@@ -17,3 +17,6 @@ libraries:
   ukradix:
     source: https://github.com/Dylmay/unikraft-lib-radix.git
     version: staging
+  uktree:
+    source: https://github.com/Dylmay/unikraft-lib-tree.git
+    version: staging

@@ -13,6 +13,7 @@
 #include <uk/kref.h>
 #include <sys/types.h>
 #include <uk/mutex.h>
+#include <uk/tree.h>
 /* End of header includes */
 ////////////////////////////////////////////////////////////////////////////////
 /* linux/asm.h definitions */
@@ -37,9 +38,15 @@
 /* End of uk/bitops.h name defines */
 ////////////////////////////////////////////////////////////////////////////////
 /* Type declarations  */
+#ifndef DIV_ROUND_UP
 # define DIV_ROUND_UP(n,d) (((n) + (d) - 1) / (d))
+#endif
+#ifndef BITS_TO_LONGS
 # define BITS_TO_LONGS(nr) DIV_ROUND_UP(nr, 8 * sizeof(long))
+#endif
+#ifndef DECLARE_BITMAP
 # define DECLARE_BITMAP(name, bits) unsigned long name[BITS_TO_LONGS(bits)]
+#endif
 # define u64 __u64
 # define u32 __u32
 # define u16 __u16
@@ -48,8 +55,12 @@
 # define PAGE_MASK __PAGE_MASK
 # define phys_addr_t __phys_addr
 # define resource_size_t phys_addr_t
+#ifndef atomic_t
 # define atomic_t __atomic
-//# define ATOMIC_INIT(i) {(i)}
+#endif
+#ifndef ATOMIC_INIT
+# define ATOMIC_INIT(i) {(i)}
+#endif
 /* End of Type declarations*/
 ////////////////////////////////////////////////////////////////////////////////
 /* mutex defines */
