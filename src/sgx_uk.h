@@ -30,6 +30,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /* uk/bitops.h name defines */
 # define BIT UK_BIT
+# define GENMASK_ULL UK_GENMASK_ULL
 # define find_first_zero_bit uk_find_first_zero_bit
 # define find_first_bit uk_find_first_bit
 # define set_bit uk_set_bit
