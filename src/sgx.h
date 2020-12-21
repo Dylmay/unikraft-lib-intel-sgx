@@ -171,7 +171,7 @@ struct sgx_encl {
 	struct list_head va_pages;
 	struct radix_tree page_tree;
 	struct list_head add_page_reqs;
-	//struct work_struct add_page_work;
+	struct list_head/*work_struct*/ add_page_work;
 	struct sgx_encl_page secs;
 	struct sgx_tgid_ctx *tgid_ctx;
 	struct list_head encl_list;
